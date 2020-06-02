@@ -1,0 +1,18 @@
+version: 2.1
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - scan-vulnerabilities-by-snyk
+
+jobs:
+  scan-vulnerabilities-by-snyk:
+    docker:
+      - image: 'circleci/openjdk:11.0.3-jdk-stretch'
+    steps:
+      - checkout
+      - snyk/scan
+
+orbs:
+  snyk: snyk/snyk@0.0.10
