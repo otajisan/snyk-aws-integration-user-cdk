@@ -1,0 +1,6 @@
+{
+  "app": "exec ./gradlew run",
+  "context": {
+    "SNYK_ORGANIZATION_ID": "<YOUR_SNYK_ORGANIZATION_ID>"
+  }
+}
