@@ -12,7 +12,6 @@ jobs:
       - image: 'circleci/node:4.8.2'
     steps:
       - checkout
-      - run: npm install -q
       - snyk/scan
 orbs:
   snyk: snyk/snyk@0.0.10
