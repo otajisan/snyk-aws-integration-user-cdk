@@ -1,7 +1,13 @@
 version: 2.1
 
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - snyk
+
 jobs:
-  build:
+  snyk:
     docker:
       - image: 'circleci/node:4.8.2'
     steps:
