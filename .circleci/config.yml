@@ -23,7 +23,7 @@ jobs:
           color: '#55f243'
           message: build scan-vulnerabilities-by-snyk
           webhook: $SLACK_WEBHOOK
-      - slack/status
+      - slack/status:
           success_message: ':tada: build successful!!'
           failure_message: ':red_circle: build failed...'
           webhook: $SLACK_WEBHOOK
