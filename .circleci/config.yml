@@ -13,6 +13,6 @@ jobs:
     steps:
       - checkout
       - snyk/scan
-        token-variable: $SNYK_TOKEN
+
 orbs:
   snyk: snyk/snyk@0.0.10
