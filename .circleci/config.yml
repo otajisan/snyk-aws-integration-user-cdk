@@ -5,6 +5,7 @@ workflows:
   build_and_test:
     jobs:
       - scan-vulnerabilities-by-snyk
+      - notify-slack
 
 jobs:
   scan-vulnerabilities-by-snyk:
@@ -13,6 +14,16 @@ jobs:
     steps:
       - checkout
       - snyk/scan
+
+  notify-slack:
+    docker:
+      - image: 'circleci/openjdk:11.0.3-jdk-stretch'
+    steps:
+      - slack/notify:
+          channel: $SLACK_CHANNEL_ID
+          color: '#42e2f4'
+          message: build scan-vulnerabilities-by-snyk
+          webhook: $SLACK_WEBHOOK
 
 orbs:
   snyk: snyk/snyk@0.0.10
